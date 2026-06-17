@@ -8,12 +8,13 @@ MAX = 7
 while tentatives < MAX:
     restantes = MAX - tentatives
     print(f"[{restantes} chance(s) restante(s)]")
-    try:
-        choix = int(input(f"Tentative {tentatives+1}/{MAX} : "))
-    except ValueError:
-        print("Entrez un nombre entier valide.")
+    saisie = input(f"Tentative {tentatives+1}/{MAX} : ")
+
+    if not saisie.isdigit():
+        print("Entrez un nombre entier positif.")
         continue
 
+    choix = int(saisie)
     tentatives += 1
 
     if choix < nombre_secret:
