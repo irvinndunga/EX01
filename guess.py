@@ -1,3 +1,5 @@
+# Guess the Number - branch1
+# Fonctionnalites : boucle, compteur, gestion d'erreurs
 import random
 
 print("=== Guess the Number ===")
@@ -10,7 +12,9 @@ while True:
     except ValueError:
         print("Entrez un nombre entier valide.")
         continue
+
     tentatives += 1
+
     if choix < nombre_secret:
         print("Trop petit !")
     elif choix > nombre_secret:
