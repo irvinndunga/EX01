@@ -5,7 +5,11 @@ nombre_secret = random.randint(1, 100)
 tentatives = 0
 
 while True:
-    choix = int(input("Votre tentative : "))
+    try:
+        choix = int(input("Votre tentative : "))
+    except ValueError:
+        print("Entrez un nombre entier valide.")
+        continue
     tentatives += 1
     if choix < nombre_secret:
         print("Trop petit !")
