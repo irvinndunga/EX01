@@ -1,28 +1,35 @@
+# Guess the Number - branch2
+# Fonctionnalites : limite de tentatives, progression, validation saisie
 import random
 
-print("=== Guess the Number ===")
-nombre_secret = random.randint(1, 100)
-tentatives = 0
-MAX = 7
+MAX_TENTATIVES = 7
 
-while tentatives < MAX:
-    restantes = MAX - tentatives
-    print(f"[{restantes} chance(s) restante(s)]")
-    saisie = input(f"Tentative {tentatives+1}/{MAX} : ")
+def jouer():
+    print("=== Guess the Number ===")
+    print(f"Trouvez le nombre entre 1 et 100 en {MAX_TENTATIVES} essais.")
+    nombre_secret = random.randint(1, 100)
+    tentatives = 0
 
-    if not saisie.isdigit():
-        print("Entrez un nombre entier positif.")
-        continue
+    while tentatives < MAX_TENTATIVES:
+        restantes = MAX_TENTATIVES - tentatives
+        print(f"[{restantes} chance(s) restante(s)]")
+        saisie = input(f"Tentative {tentatives+1}/{MAX_TENTATIVES} : ")
 
-    choix = int(saisie)
-    tentatives += 1
+        if not saisie.isdigit():
+            print("Entrez un nombre entier positif.")
+            continue
 
-    if choix < nombre_secret:
-        print("Trop petit !")
-    elif choix > nombre_secret:
-        print("Trop grand !")
-    else:
-        print(f"Bravo ! Trouve en {tentatives} tentative(s) !")
-        break
-else:
+        choix = int(saisie)
+        tentatives += 1
+
+        if choix < nombre_secret:
+            print("Trop petit !")
+        elif choix > nombre_secret:
+            print("Trop grand !")
+        else:
+            print(f"Bravo ! Trouve en {tentatives} tentative(s) !")
+            return
+
     print(f"Perdu ! Le nombre etait {nombre_secret}.")
+
+jouer()
