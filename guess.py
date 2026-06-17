@@ -6,6 +6,8 @@ tentatives = 0
 MAX = 7
 
 while tentatives < MAX:
+    restantes = MAX - tentatives
+    print(f"[{restantes} chance(s) restante(s)]")
     try:
         choix = int(input(f"Tentative {tentatives+1}/{MAX} : "))
     except ValueError:
